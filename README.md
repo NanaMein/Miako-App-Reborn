@@ -1,93 +1,103 @@
 # Mirai Aiko (Reborn)
 
-**A personal AI‑powered chatbot that remembers you.**
-Built with FastAPI, Redis‑based opaque‑token authentication, MongoDB, and a vector store (Milvus) + mem0 for long‑term, contextual memory. Heavy LLM work is off‑loaded to a NATS‑driven worker, while the front‑end receives real‑time replies via Server‑Sent Events (SSE).
+**A text-first AI companion designed to understand Taglish, language-switching, and the way people actually talk.**
 
----
+**Reborn** is an updated, refactored rework of my original Mirai Aiko project—not a brand-new project. It carries forward the earlier project’s foundation while reshaping it around the architecture and goals described here. The idea grew out of my experience abroad; I’ll share the fuller story another time. For now, this README focuses on the product goal and the system I want to build.
 
-## Vision
+## The goal
 
-We aim to provide a **self‑hosted, privacy‑first personal assistant** that can:
+Mirai Aiko is for people who speak Taglish, use modern Filipino and Gen Z slang, switch languages mid-thought, or otherwise communicate in ways that English-first AI systems can misunderstand. It should follow the user’s meaning and conversational context—even when the language or topic shifts—and return an answer that feels natural in the language and style they used.
 
-* Understand a user’s history and preferences through persistent memory.
-* Answer questions, set reminders, and perform simple actions while staying within the user’s context.
-* Be extended with new tools (web‑search, code execution, calendar integration, etc.) without breaking the core workflow.
+The language-understanding layer is meant to identify intent and preserve meaning, not limit what the assistant can say. The response can still be fluent, flexible, and creative; the intermediate structure simply gives the rest of the system a clearer understanding of what the user meant.
 
----
+The first version is **text-only**. Voice input and output are not part of the current plan.
 
-## Core Features
+## Intended architecture
 
-- **Opaque‑token cookie auth** (Redis) – secure, stateless, and works seamlessly with SSE.
-- **Async‑first architecture** – FastAPI + NATS job queue ensures the API never blocks, even when CrewAI/LLM calls are heavy.
-- **Contextual memory** – `mem0` + Milvus vector store provides both short‑term cache and long‑term RAG‑style recall.
-- **Deterministic CrewAI pipeline** – “Lily → Lotus” multi‑agent flow gives predictable, step‑by‑step reasoning.
-- **Extensible tooling** – new agents, tools, or external services can be added by dropping a YAML/TOML definition and wiring a small service.
-- **Web UI (HTMX + Tailwind CSS + Alpine.js)** – a minimal, reactive chat interface that can be run locally for testing or further customization.
+This is the target design, not a claim that every stage is already implemented.
 
----
-
-## Architecture Overview
-
+```text
+User message
+    │
+    ▼
+Redis short-term conversation window
+    │  Keep a bounded, recent history to help resolve context and topic shifts
+    ▼
+Language understanding and normalization
+    │  Detect languages/code-switching and produce validated structured JSON
+    ▼
+Mem0 semantic-memory retrieval
+    │  Search relevant long-term user context using the normalized meaning
+    ▼
+Reasoning and action selection
+    │  Combine the JSON, recent conversation, and retrieved memories
+    │  Reply directly, plan a task, or use an available tool
+    ▼
+Response generation and language/style polish
+    │  Return the answer in the language mix and tone of the user's message
+    ▼
+User
 ```
-POST /api/chat
-   │
-   └─► Validate opaque cookie (Redis)
-        │
-        └─► Publish job (payload + job_id) to NATS
-             │
-             └─► Return job_id to client
-```
 
-- **Worker process** (separate Docker service) subscribes to the NATS job subject, runs the Lily/Lotus agents, writes progress/results back to a NATS event subject `chat.events.<job_id>`.
-- **SSE endpoint** (`GET /api/chat/stream?job_id=…`) re‑validates the same cookie, subscribes to that event subject, and streams token‑by‑token updates to the browser.
-- **Memory stack** – short‑term TTL cache + per‑user lock (Redis) + long‑term Milvus vector store (mem0) gives the assistant a persistent “understanding” of each user.
+### 1. Short-term conversation context — Redis
 
----
+Before language processing, Redis will keep a small, bounded window of recent conversation. This gives the assistant nearby context for follow-ups and topic changes without treating the entire chat history as permanent memory. The size and expiry policy still need to be defined.
 
-## Extending the Assistant
+### 2. Language understanding — structured JSON
 
-1. **Add a new tool definition** (`tools.yaml` or new TOML file) describing the external capability (e.g., web‑search, calendar API).
-2. **Implement a service** in `app/services/agents/` that calls the external API.
-3. **Update the CrewAI task/agent YAML** to reference the new tool.
-4. **Restart the NATS worker** – the new capability is instantly available without changing the API layer.
+For non-English and mixed-language input, a language-understanding step will use a language model to interpret the message and produce a structured representation. Depending on the message, that representation may include:
 
----
+- Detected language or languages and a confidence score.
+- A concise English interpretation that preserves the original meaning and context.
+- Intent, relevant entities, and task constraints.
+- Whether a workflow or tool may be appropriate, with a confidence or uncertainty signal.
+- Ambiguities the next step should clarify rather than guess about.
 
-## Minimal Web UI
+This is an internal handoff format, not the final answer. The intent is to use the model to understand the user—not to depend on scraping or translating web content to interpret ordinary conversation. Structured output should be validated, and uncertainty should remain visible to later steps.
 
-A lightweight HTML page located at `frontend/` (served via FastAPI static files) uses:
+### 3. Long-term semantic context — Mem0
 
-- **HTMX** – to fire the `POST /api/chat` request and open the SSE stream without custom JavaScript.
-- **Tailwind CSS** – for a clean, responsive layout.
-- **Alpine.js** – for local state handling (message list, loading spinner, error handling).
+Mem0, backed by a vector store, will search for relevant long-term memories using the normalized meaning of the message. The retrieved memories are additional context, not instructions that override what the user just said. Redis supports the recent conversation window; Mem0 supports semantic recall across conversations.
 
-The UI is deliberately simple so you can:
+### 4. Reasoning, replies, and extensible actions
 
-- Test the end‑to‑end flow locally.
-- Extend the markup or add new UI components (e.g., reminder list, settings) as needed.
+The reasoning step will combine the structured message, Redis conversation context, and any relevant Mem0 results. It can choose a simple direct reply (such as a greeting), reason through a request, or select an available workflow or tool. As the system grows, this layer may also update useful long-term memories, persist application data to MongoDB, call tools through MCP, or retrieve additional conversation context from Redis.
 
----
+These are extension points in the intended architecture—not a promise that those actions or a chat workflow are currently wired into the running API.
 
-## Getting Started
+### 5. Natural response in the user’s language
+
+Before responding, the system will shape the answer for the language or language mix of the original message. For Taglish, that means a natural Taglish response where appropriate—not a stiff, word-for-word translation. The goal is to preserve the answer’s meaning while making it sound clear and conversational.
+
+## Model and cost approach
+
+The aim is to keep the system useful without requiring an expensive model for every step. Clear structured handoffs, bounded short-term context, and relevant memory retrieval can help avoid sending unnecessary context downstream and make it possible to choose a suitably capable model for each task. This is a design goal, not a guarantee of a particular cost or quality level; both will need to be measured as the workflow is implemented.
+
+The language layer should improve understanding, not force every downstream component into a rigid output style. The assistant should still be able to produce smooth, helpful answers.
+
+## Current project status
+
+The repository is an early foundation for the design above. The currently wired FastAPI app exposes a health check and user authentication endpoints. Redis and MongoDB clients are initialized at startup, and a Mem0 repository is present for semantic-memory operations. The Taglish understanding pipeline, bounded conversation-history behavior, chat orchestration, tool workflow, and response-language polishing are not yet connected to the running API.
+
+Older experimental code lives under `app_orig_copy/`; it should not be mistaken for routes currently served by the main application. The system is text-only at this stage, and voice support remains an open future problem.
+
+## Running the current API
+
+The project uses Python 3.13 and `uv`. The API expects `MONGO_URI` and `REDIS_URI` at startup. For Mem0, configure `GROQ_API_KEY`, `COHERE_API_KEY`, `MILVUS_URI`, `MILVUS_TOKEN`, and `MILVUS_COLLECTION_NAME` as well. Put local settings in a root `.env` file; configuration is loaded from the process working directory.
 
 ```bash
-# Install dependencies (uv is used)
 uv sync
-
-# Run the API (development)
 uv run python main.py
-
-# In another terminal, start the NATS worker
-uv run python -m app.worker   # (you’ll add this entrypoint)
-
-# Open the UI
-http://localhost:8000/
 ```
 
-*Make sure Redis, MongoDB, Milvus, and NATS are reachable (Docker‑compose can spin them all up).*
+The current Docker Compose setup starts the backend with MongoDB and Redis:
 
----
+```bash
+docker compose up --build
+```
+
+The API is available at `http://localhost:8000`; its health endpoint is `/health-check`. Authentication routes are mounted under `/api/auth`. Docker Compose does not configure the external Milvus, Cohere, or Groq services needed to use Mem0.
 
 ## License
 
-MIT – feel free to fork, tweak, and run your own personal assistant.
+MIT
