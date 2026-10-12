@@ -43,10 +43,12 @@ class ShortMemoryRepository:
     async def _get(self, key: str) -> str | None:
         return self._ttl_cache.get(key)
 
-    async def add_user_message(self, user_id: str, content: str):
+    async def _add_message(self, user_id: str, role: str, content: str) -> bool:
         try:
+            if role not in ["user", "assistant"]:
+                return False
             current_messages = await self._get(key=user_id)
-            new_user_message = {"role":"user","content":content}
+            new_user_message = {"role":role,"content":content}
             
             if current_messages is not None:
                 temp_messages: list[dict] = loads(current_messages)
@@ -61,23 +63,13 @@ class ShortMemoryRepository:
         except Exception:
             return False
 
+
+    async def add_user_message(self, user_id: str, content: str):
+        return await self._add_message(user_id=user_id, role="user", content=content)
+
+
     async def add_assistant_message(self, user_id: str, content: str):
-        try:
-            current_messages = await self._get(key=user_id)
-            new_user_message = {"role":"assistant","content":content}
-            
-            if current_messages is not None:
-                temp_messages: list[dict] = loads(current_messages)
-                temp_messages.append(new_user_message)
-                transformed_messages = dumps(temp_messages)
-                await self._add(key=user_id, value=transformed_messages)
-                return True
-                
-            first_new_message = [new_user_message]
-            await self._add(key=user_id, value=dumps(first_new_message))
-            return True
-        except Exception:
-            return False
+        return await self._add_message(user_id=user_id, role="assistant", content=content)
 
 
 os.environ["COHERE_API_KEY"] = settings.cohere_api_key
