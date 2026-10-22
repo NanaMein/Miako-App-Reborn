@@ -1,5 +1,5 @@
 [project]
-name = "miako-app-mvp"
+name = "Mirai-Aiko"
 version = "0.1.0"
 description = """Newly reborn """
 requires-python = ">=3.13, <3.14"
