@@ -4,10 +4,10 @@ from fastapi import Depends, Request, Response
 
 from app.dependencies.auth_dependency import HttpCookieAuthServiceDepends
 from app.services.users_service import (
+    UserAccessService,
     UserLoginService,
     UserLogoutService,
     UserRegisterService,
-    UserAccessService
 )
 
 type UserLogoutServiceDepends = Annotated[UserLogoutService, Depends(get_user_logout_service)]
