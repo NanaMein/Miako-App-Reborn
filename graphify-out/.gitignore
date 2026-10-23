@@ -1,0 +1,17 @@
+# Regenerable Graphify cache and incremental-scan state
+/cache/
+/manifest.json
+/.graphify_root
+/.graphify_python
+
+# Temporary extraction/build intermediates
+/.graphify_detect.json
+/.graphify_ast.json
+/.graphify_semantic.json
+/.graphify_cached.json
+/.graphify_uncached.txt
+/.graphify_chunk_*.json
+/.graphify_semantic_new.json
+/.graphify_extract.json
+/.graphify_analysis.json
+/.needs_update

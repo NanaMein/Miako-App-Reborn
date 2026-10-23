@@ -1,13 +1,14 @@
 - Run dev server from repo root: `uv sync` then `uv run python main.py`.
 - FastAPI app startup (Redis+Mongo): `main.py` lifespan calls `RedisCacheBaseRepository.init_redis_cache_repository()` and `MongoBase.init_mongo_client()`; required env vars are `REDIS_URI` and `MONGO_URI`.
-- Env loading: `app/core/config.py` runs `load_dotenv()` at import time, so `.env` is loaded from the current working directory; keep a complete root `.env` (not only `secrets/.env`) including `MILVUS_COLLECTION_NAME` if you use memory.
+- Env loading: `app/core/config.py` runs `load_dotenv()` at import time, so `.env` is loaded from the current working directory. A root `.env` needs `REDIS_URI` and `MONGO_URI` to start the current API.
 - Docker/local dependencies: `docker-compose.yaml` starts Mongo+Redis and maps the backend to `127.0.0.1:8000` (Mongo/Redis ports are not exposed).
 - Default routing: `main.py` mounts only `app/routers/auth_router.py` under `/api/auth` and exposes `/health-check`—playground/chat routes in `app_orig_copy/routers/*` will 404 unless you wire them in.
 - Auth endpoints to hit: `GET /api/auth/sample-user-for-testing`, `POST /api/auth/register-user`, `POST /api/auth/login-user`, `GET /api/auth/me`, `GET /api/auth/logout`.
 - Cookie auth details: cookies are named `access` and `refresh` (opaque Redis tokens); `IS_DEPLOYED_FOR_PRODUCTION=true` makes them `secure`, and cookie `samesite` is `lax` (access) / `strict` (refresh).
 - Token TTL + rotation gotcha: Redis token TTLs match cookie TTLs (`access` = 7 minutes, `refresh` = 7 days); `GET /api/auth/me` calls `HttpCookieAuthService.get_user_id()` which deletes the old refresh token and re-issues both cookies when access is missing.
-- LLM/memory initialization: `AgentMemoryRepository` needs `COHERE_API_KEY`, `GROQ_API_KEY`, `MILVUS_URI`, `MILVUS_TOKEN`, `MILVUS_COLLECTION_NAME`; call `AgentMemoryRepository.init_memory_client()` before use and `close_memory_client()` during shutdown.
-- Workflow example locations: `app/workflows/agent_pipeline.py` is currently a stub; for end-to-end agent/LLM examples, prefer `app_orig_copy/routers/*` and `app_orig_copy/services/*`.
+- Legacy memory integration: `AgentMemoryRepository` still uses the existing Groq/Cohere/Milvus configuration and needs `GROQ_API_KEY`, `COHERE_API_KEY`, `MILVUS_URI`, `MILVUS_TOKEN`, and `MILVUS_COLLECTION_NAME` if used. It is not initialized by the current app lifespan and is not the planned Azure AI Foundry memory/agent design; migrate or replace it before wiring memory into the new workflow.
+- Agent and streaming direction: the target is Azure AI Foundry orchestration behind FastAPI endpoints. Stream generated output directly from the endpoint with FastAPI's `StreamingResponse`; do not add a message broker or an SSE layer. This chat/agent workflow is not currently wired into `main.py`.
+- Workflow example locations: `app/workflows/agent_pipeline.py` is not present in the current tree. Treat `app_orig_copy/routers/*` and `app_orig_copy/services/*` as experimental legacy code, not as the target Azure architecture.
 - Graphify workflow: with `graphify-out/graph.json` present, start codebase questions with `graphify query "..."` (and `graphify path "A" "B"` for relationships), and after edits run `graphify update .`.
 
 ## graphify

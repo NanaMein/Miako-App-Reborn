@@ -64,9 +64,4 @@ coverage.xml
 ehthumbs.db
 Thumbs.db
 
-app_demo/
-
-tasks.yaml
-agents.yaml.
 .ruff_cache/
-graphify-out/
