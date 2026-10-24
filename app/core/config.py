@@ -84,3 +84,35 @@ class Settings:
 
 
 settings = Settings()
+
+class SettingsDeveloper:
+    def __init__(self):
+        logger.info("Loading application Developer settings for testing purposes")
+        
+    AZURE_TRANSLATE_ENDPOINT = "https://api.cognitive.microsofttranslator.com"
+    AZURE_TRANSLATE_KEY: str | None = os.getenv("AZURE_TRANSLATE_KEY", None)
+    AZURE_TRANSLATE_LOCATION: str | None = os.getenv("AZURE_TRANSLATE_LOCATION", None)
+    AZURE_TRANSLATE_PATH = "/translate"
+
+
+    @property
+    def azure_translate_key(self) -> str:
+        if not self.AZURE_TRANSLATE_KEY:
+            raise RuntimeError("AZURE_TRANSLATE_KEY not set")
+        return self.AZURE_TRANSLATE_KEY
+
+    @property
+    def azure_translate_location(self) -> str:
+        if not self.AZURE_TRANSLATE_LOCATION:
+            raise RuntimeError("AZURE_TRANSLATE_LOCATION not set")
+        return self.AZURE_TRANSLATE_LOCATION
+
+    @property
+    def azure_translate_url(self) -> str:
+        if not self.AZURE_TRANSLATE_ENDPOINT and not self.AZURE_TRANSLATE_PATH:
+            raise RuntimeError("AZURE_TRANSLATE_ENDPOINT and AZURE_TRANSLATE_PATH not set")
+        return self.AZURE_TRANSLATE_ENDPOINT + self.AZURE_TRANSLATE_PATH
+
+    
+
+settings_dev = SettingsDeveloper()
