@@ -1,13 +1,14 @@
 from agent_framework.foundry import FoundryChatClient
 from agent_framework import Agent
 from azure.identity import DefaultAzureCredential
+from ..core.config import settings_dev
 import asyncio
 
 
 
 
 azure_client = FoundryChatClient(
-    project_endpoint="Insert-project-endpoint-here",
+    project_endpoint=settings_dev.azure_project_endpoint,
     model="DeepSeek-V4-Flash",
     credential=DefaultAzureCredential()
 )

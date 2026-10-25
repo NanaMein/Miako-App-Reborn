@@ -94,6 +94,8 @@ class SettingsDeveloper:
     AZURE_TRANSLATE_LOCATION: str | None = os.getenv("AZURE_TRANSLATE_LOCATION", None)
     AZURE_TRANSLATE_PATH = "/translate"
 
+    AZURE_PROJECT_ENDPOINT: str | None = os.getenv("AZURE_PROJECT_ENDPOINT", None)
+
 
     @property
     def azure_translate_key(self) -> str:
@@ -113,6 +115,11 @@ class SettingsDeveloper:
             raise RuntimeError("AZURE_TRANSLATE_ENDPOINT and AZURE_TRANSLATE_PATH not set")
         return self.AZURE_TRANSLATE_ENDPOINT + self.AZURE_TRANSLATE_PATH
 
+    @property
+    def azure_project_endpoint(self):
+        if not self.AZURE_PROJECT_ENDPOINT:
+            raise RuntimeError("AZURE_PROJECT_ENDPOINT not set")
+        return self.AZURE_PROJECT_ENDPOINT
     
 
 settings_dev = SettingsDeveloper()
