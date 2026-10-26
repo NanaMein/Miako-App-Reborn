@@ -7,7 +7,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 from ..core.config import settings_dev
-from ..workflows.tools import translator_tool_v1
+from ..workflows.tools import translator_tool
 
 chat_router = APIRouter()
 
