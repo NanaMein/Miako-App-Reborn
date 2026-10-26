@@ -1,11 +1,10 @@
-from agent_framework.foundry import FoundryChatClient
-from agent_framework import Agent
-from azure.identity import DefaultAzureCredential
-from ..core.config import settings_dev
 import asyncio
 
+from agent_framework import Agent
+from agent_framework.foundry import FoundryChatClient
+from azure.identity import DefaultAzureCredential
 
-
+from ..core.config import settings_dev
 
 azure_client = FoundryChatClient(
     project_endpoint=settings_dev.azure_project_endpoint,

@@ -1,6 +1,6 @@
-from typing import Literal
 import json
 import uuid
+from typing import Literal
 
 from requests import Response, post
 
