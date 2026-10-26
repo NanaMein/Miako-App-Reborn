@@ -1,0 +1,170 @@
+{
+  ".opencode/opencode.json": {
+    "mtime": 1791178322.357816,
+    "seen": 1792683707.229098,
+    "ast_hash": "738a10e63a8f3cc780cea9cc67c89eb5",
+    "semantic_hash": ""
+  },
+  ".opencode/package.json": {
+    "mtime": 1791178419.1233485,
+    "seen": 1792683707.229098,
+    "ast_hash": "b747f9fcebc9b7ac944ac5380eda12a5",
+    "semantic_hash": ""
+  },
+  ".opencode/plugins/graphify.js": {
+    "mtime": 1791178322.357816,
+    "seen": 1792683707.229098,
+    "ast_hash": "b33d000860642c6f4907a877e0387a21",
+    "semantic_hash": ""
+  },
+  "app/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/core/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/core/config.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "60b6fd603d57f692e1791545e25c2b05",
+    "semantic_hash": ""
+  },
+  "app/core/logger.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "b487747db36df93c0cfa3af9efd6432f",
+    "semantic_hash": ""
+  },
+  "app/dependencies/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/dependencies/auth_dependency.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "c2c1970310766db6e130579d490695aa",
+    "semantic_hash": ""
+  },
+  "app/dependencies/users_dependency.py": {
+    "mtime": 1792681725.2256691,
+    "seen": 1792683707.229098,
+    "ast_hash": "16ac44d248302217744b7cc4d0e6ec49",
+    "semantic_hash": ""
+  },
+  "app/repositories/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/repositories/agent_memory_repository.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "f17a9b1b97c675dbfeaf3ffee0ccbd28",
+    "semantic_hash": ""
+  },
+  "app/repositories/caches.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "df12759ce31c225dd3b6d05b66b421b4",
+    "semantic_hash": ""
+  },
+  "app/repositories/database.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "0e32f8f84996d0120f60fa53206c4f2b",
+    "semantic_hash": ""
+  },
+  "app/routers/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/routers/auth_router.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "04ebe8b92b2221492466b6d7a74b4618",
+    "semantic_hash": ""
+  },
+  "app/schemas/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/schemas/users_schema.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "e551d726947a536e86f75c8b624d370c",
+    "semantic_hash": ""
+  },
+  "app/services/__init__.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "app/services/http_cookie_service.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "ff5ea96a065be2b02124e7e40d52f7f1",
+    "semantic_hash": ""
+  },
+  "app/services/password_hasher_service.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "38d899540dd3bb966979a7a480366ddf",
+    "semantic_hash": ""
+  },
+  "app/services/users_service.py": {
+    "mtime": 1791178322.368965,
+    "seen": 1792683707.229098,
+    "ast_hash": "ab9a0fc1332556593d28c6206a53d507",
+    "semantic_hash": ""
+  },
+  "main.py": {
+    "mtime": 1791178322.4014804,
+    "seen": 1792683707.229098,
+    "ast_hash": "0d2ae3bdb9920af8a7491fc06269b29d",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1792683038.777271,
+    "seen": 1792683707.229098,
+    "ast_hash": "2717db893ee1eb7d0cfcbcf40614540f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/Mirai_Aiko_Alter_Ego.md": {
+    "mtime": 1791178322.357816,
+    "seen": 1792683707.229098,
+    "ast_hash": "b3cef3ef82bbbd8499513642efc807d4",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1792683728.8329158,
+    "seen": 1792683737.2089746,
+    "ast_hash": "b9ec180c8b7b83387e7ca4a4bd66dd45",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1792683728.8329158,
+    "seen": 1792683737.2089746,
+    "ast_hash": "e8a5aea7af6b4a266ec834382a818a5f",
+    "semantic_hash": ""
+  },
+  "docker-compose.yaml": {
+    "mtime": 1791178322.4014804,
+    "seen": 1792683707.229098,
+    "ast_hash": "442cf9bc144a5d0dd76ba651b893f3c1",
+    "semantic_hash": ""
+  }
+}

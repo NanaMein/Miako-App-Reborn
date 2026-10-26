@@ -1,17 +1,17 @@
 {
   "0": "Settings",
-  "1": "users_service.py",
+  "1": "UserLoginService",
   "2": "main.py",
   "3": "OpaqueTokenService",
   "4": "HttpCookieAuthService",
-  "5": "auth_router.py",
+  "5": "users_service.py",
   "6": "Mirai Aiko (Reborn)",
-  "7": "users_dependency.py",
-  "8": "AgentMemoryRepository",
+  "7": "main_workflow.py",
+  "8": "SettingsDeveloper",
   "9": "opencode.json",
   "10": "dependencies",
   "11": "graphify.js",
-  "12": "AGENTS.md",
+  "12": "Project guidance",
   "13": "core/__init__.py",
   "14": "dependencies/__init__.py",
   "15": "app/__init__.py",
@@ -20,5 +20,6 @@
   "18": "schemas/__init__.py",
   "19": "services/__init__.py",
   "20": "Mirai_Aiko_Alter_Ego.md",
-  "21": "Mirai-Aiko"
+  "21": "Mirai-Aiko",
+  "22": "workflows/__init__.py"
 }
