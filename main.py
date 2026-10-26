@@ -6,6 +6,7 @@ from app.core.logger import LoguruHandler
 from app.repositories.caches import RedisCacheBaseRepository
 from app.repositories.database import MongoBase
 from app.routers.auth_router import router as auth_router
+from app.workflows.main_workflow import chat_router
 
 loguru_handler = LoguruHandler()
 loguru_handler.setup_logger("dev") # Dev for now to ensure it does log as test. 
@@ -26,6 +27,7 @@ app = FastAPI(
 )
 
 app.include_router(auth_router, prefix="/api/auth", tags=["Auth for users with sample user test"])
+app.include_router(chat_router, prefix="/api", tags=["Test chat message"])
 
 
 @app.get("/health-check")

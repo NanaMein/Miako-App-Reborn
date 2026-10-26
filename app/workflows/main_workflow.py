@@ -3,8 +3,13 @@ import asyncio
 from agent_framework import Agent
 from agent_framework.foundry import FoundryChatClient
 from azure.identity import DefaultAzureCredential
+from fastapi import APIRouter
+from pydantic import BaseModel, Field
 
 from ..core.config import settings_dev
+from ..workflows.tools import translator_tool_v1
+
+chat_router = APIRouter()
 
 azure_client = FoundryChatClient(
     project_endpoint=settings_dev.azure_project_endpoint,
@@ -17,10 +22,27 @@ agent = Agent(
     instructions="You are a helpful AI assistant. Answer user questions accurately and concisely.",
 )
 
-async def main():
-    response = await agent.run("Hello there!")
-    print(response)
+# async def main():
+#     response = await agent.run("Hello there!")
+#     print(response)
+# 
+# 
+# if __name__ == "__main__":
+#     asyncio.run(main())
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+class Chat(BaseModel):
+    message: str = Field(default="", description="Message input and output from chat agent.")
+
+@chat_router.post("/chat")
+async def chat_agent(chat: Chat):
+    english_message = translator_tool_v1(chat.message)
+    agent_response = await agent.run(english_message)
+    translated_response = translator_tool_v1(
+        query=agent_response.text,
+        input_lang="en",
+        output_lang="fil"
+    )
+    return Chat(message=translated_response)
+    
+    
