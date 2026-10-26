@@ -87,10 +87,7 @@ settings = Settings()
 
 class SettingsDeveloper:
 
-<<<<<<< HEAD
     AZURE_PROJECT_ENDPOINT: str | None = os.getenv("AZURE_PROJECT_ENDPOINT", None)
-=======
->>>>>>> 44ef5f78c8743c19e10c1a35960c3b2c6df0ff1d
     AZURE_TRANSLATOR_ENDPOINT = os.getenv("AZURE_TRANSLATOR_ENDPOINT", None)
     AZURE_TRANSLATOR_DEPLOYMENT_NAME =  os.getenv("AZURE_TRANSLATOR_DEPLOYMENT_NAME", "gpt-5.6-luna")
     AZURE_TRANSLATOR_API_VERSION = os.getenv("AZURE_TRANSLATOR_API_VERSION","2026-06-06")
@@ -100,14 +97,11 @@ class SettingsDeveloper:
     def __init__(self):
         logger.info("Loading application Developer settings for testing purposes")
 
-<<<<<<< HEAD
     @property
     def azure_project_endpoint(self):
         if not self.AZURE_PROJECT_ENDPOINT:
             raise RuntimeError("AZURE_PROJECT_ENDPOINT not set")
         return self.AZURE_PROJECT_ENDPOINT
-=======
->>>>>>> 44ef5f78c8743c19e10c1a35960c3b2c6df0ff1d
 
     @property
     def azure_translator_url(self):
