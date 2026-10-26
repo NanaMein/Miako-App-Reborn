@@ -1,104 +1,99 @@
 # Mirai Aiko (Reborn)
 
-**A text-first AI companion designed to understand Taglish, language-switching, and the way people actually talk.**
+**A text-first AI companion with the goal of understanding Taglish, modern Filipino slang, and language-switching in context.**
 
-**Reborn** is an updated, refactored rework of my original Mirai Aiko project—not a brand-new project. It carries forward the earlier project’s foundation while reshaping it around the architecture and goals described here. The idea grew out of my experience abroad; I’ll share the fuller story another time. For now, this README focuses on the product goal and the system I want to build.
+Mirai Aiko Reborn is an updated, refactored continuation of my original Miako project—not a brand-new project. The idea grew out of my experience abroad; I’ll share the fuller story another time. This README describes the current learning prototype, the direction I’m working toward, and the boundaries between them.
 
-## The goal
+## Product goal and priorities
 
-Mirai Aiko is for people who speak Taglish, use modern Filipino and Gen Z slang, switch languages mid-thought, or otherwise communicate in ways that English-first AI systems can misunderstand. It should follow the user’s meaning and conversational context—even when the language or topic shifts—and return an answer that feels natural in the language and style they used.
+Mirai Aiko is intended for people who speak Taglish, use modern Filipino and Gen Z slang, switch languages mid-thought, or otherwise communicate in ways that English-first AI systems can misunderstand. It should follow meaning and conversational context through language and topic shifts, then respond naturally in the language mix and style that fits.
 
-The language-understanding layer is meant to identify intent and preserve meaning, not limit what the assistant can say. The response can still be fluent, flexible, and creative; the intermediate structure simply gives the rest of the system a clearer understanding of what the user meant.
+The work is intentionally staged:
 
-The first version is **text-only**. Voice input and output are not part of the current plan.
+1. **Language understanding and context:** build and evaluate reliable understanding of Taglish, code-switching, slang, follow-ups, and topic changes.
+2. **Cost-effective conversations:** use model and context choices that meet quality goals without requiring a high-reasoning frontier model for every interaction; measure quality and cost rather than assume either.
+3. **Tools and automation:** consider agent tools and workflow automation such as n8n only after the first two priorities have solid implementations and pass their evaluations.
 
-## Intended architecture
+This is a text-only project for now. Voice input and output are not in the current plan.
 
-This is the target design, not a claim that every stage is already implemented. FastAPI will be the application layer, with Azure AI Foundry as the model and agent-orchestration platform. Agent design will grow alongside my Azure AI-103 studies; specific models, agent roles, and Azure services remain implementation decisions.
+## Primary foundation: Microsoft Agent Framework and Azure AI Foundry
+
+**Microsoft Agent Framework (MAF) is the primary agent-framework direction. Azure AI Foundry is the project’s main model and agent platform while I learn and build this system.** Azure is the current focus, not an irreversible commitment that prevents revisiting providers later. The goal is to grow the workflow incrementally, with clearer boundaries among workflows, services, and repositories under `app/` as the implementation needs them. The current small workflow is a learning and testing scaffold; it is not meant to prescribe the final architecture.
+
+This project also supports my current Azure AI-901 and AI-103 learning goals; learning informs the design, while implementation choices will follow the project’s needs and evaluation results.
+
+### What is currently implemented
+
+The running FastAPI app currently exposes a health check, cookie-based user-authentication routes, and a simple chat prototype:
 
 ```text
-User message
+POST /api/chat
     │
     ▼
-FastAPI chat endpoint
-    │  Authenticate, validate the request, and coordinate the response
+app/workflows/main_workflow.py
+    │  Translate Filipino input to English
+    │  Run one MAF Agent through FoundryChatClient
+    │  Translate the English response back to Filipino
     ▼
-Redis short-term conversation context
-    │  Keep a bounded, recent history for follow-ups and topic shifts
-    ▼
-Azure AI Foundry language understanding and agent orchestration
-    │  Interpret code-switching, preserve intent, and coordinate specialized agents/tools
-    ▼
-Long-term semantic context
-    │  Retrieve relevant user context; storage and Azure integration to be decided
-    ▼
-Response generation and language/style polish
-    │  Produce a natural answer in the language mix and tone of the user's message
-    ▼
-FastAPI streams the response directly to the client
-    │  HTTP streaming response; no message broker in the planned request path
-    ▼
-User
+JSON response: {"message": "..."}
 ```
 
-### 1. API and short-term conversation context — FastAPI and Redis
+The current Foundry client is configured for `DeepSeek-V4-Flash`. The translation helper lives in `app/workflows/tools.py`; it is called by the workflow and is not currently registered as an agent tool. This is a straightforward Filipino-to-English-to-Filipino test path, **not** the planned Taglish/Gen Z language-understanding pipeline. The chat route does not currently apply the existing cookie-auth dependency, so treat it as an experimental endpoint rather than a production-ready authenticated chat API.
 
-FastAPI will receive chat requests, apply the application’s authentication and validation, and coordinate the workflow. Redis will keep a small, bounded window of recent conversation. This gives the assistant nearby context for follow-ups and topic changes without treating the entire chat history as permanent memory. The size and expiry policy still need to be defined.
+The chat response is ordinary JSON. Streaming is deliberately off for now while I learn how a future MAF workflow should be designed. No streaming, SSE layer, or message broker is part of the current chat path.
 
-### 2. Language understanding and orchestration — Azure AI Foundry
+Other currently wired behavior:
 
-For non-English and mixed-language input, an Azure AI Foundry model or agent will interpret the message and produce a validated structured representation for downstream reasoning. Depending on the message, that representation may include:
+- `GET /health-check` reports API health.
+- User-authentication endpoints are mounted under `/api/auth`.
+- Redis currently supports authentication tokens; it does not yet store chat history.
+- MongoDB currently supports user persistence; it is not yet being used for chat memory.
+- There is no connected Taglish interpretation pipeline, bounded conversation-history feature, long-term semantic memory, or multi-agent/tool orchestration in the running chat workflow.
 
-- Detected language or languages and a confidence score.
-- A concise English interpretation that preserves the original meaning and context.
-- Intent, relevant entities, and task constraints.
-- Whether a workflow or tool may be appropriate, with a confidence or uncertainty signal.
-- Ambiguities the next step should clarify rather than guess about.
+### Intended MAF and Foundry workflow
 
-This is an internal handoff format, not the final answer. The intent is to use Azure-hosted models to understand the user—not to depend on scraping or translating web content to interpret ordinary conversation. Structured output should be validated, and uncertainty should remain visible to later steps. Multi-agent roles and routing will be designed as the Azure AI Foundry implementation takes shape.
+The following is a direction for gradual implementation, not a description of features that are already wired into the API:
 
-### 3. Long-term semantic context
+1. **FastAPI application layer:** receive and validate a normal REST request and coordinate the workflow. Keep new responsibilities in appropriate parts of `app/` as they become necessary instead of over-building the initial prototype.
+2. **MAF orchestration with Azure AI Foundry:** develop language understanding that can preserve the user’s meaning across Taglish, code-switching, slang, and topic shifts. A validated internal handoff may capture language, intent, entities, constraints, uncertainty, and ambiguities that need clarification. This internal representation should help reasoning without forcing the final reply into a rigid style.
+3. **Conversation context and memory:** a bounded recent-context window and longer-term semantic recall are possible future capabilities. Redis currently serves auth tokens only; chat history and semantic memory are not implemented. Select a memory or RAG approach only when the use case is clear, and keep retrieved memories as supporting context rather than instructions that override the user’s request.
+4. **Natural response:** aim for a clear, useful answer in a language mix and tone appropriate to the user. The present translation loop is only a test implementation and should not be mistaken for that capability.
+5. **Normal REST first:** continue returning standard JSON while learning and evaluating the workflow. Streaming can be reconsidered later when the MAF design and response transport are clearer.
 
-The system should be able to search for relevant long-term memories using the normalized meaning of a message. Retrieved memories are additional context, not instructions that override what the user just said. Redis supports the recent conversation window; a separate semantic-memory design will support recall across conversations. The memory provider and its integration with Azure are still to be selected.
+## Future supporting options—not current dependencies or commitments
 
-### 4. Agent reasoning, replies, and extensible actions
+The core direction remains MAF with Azure AI Foundry as the current platform focus. Other products and frameworks may be evaluated as supporting integrations or alternatives when a specific need arises; none of these are part of the current installed project stack or a promise to adopt them:
 
-Azure AI Foundry agents will combine the structured message, Redis conversation context, and any relevant long-term memories. The workflow can choose a simple direct reply (such as a greeting), reason through a request, or coordinate a suitable agent or tool. As the system grows, it may also update useful long-term memories, persist application data to MongoDB, or retrieve additional conversation context from Redis.
+- **LlamaIndex** for a future RAG implementation when more control is needed.
+- **Mem0** for a possible more abstracted memory layer.
+- **CrewAI** for a possible alternate or supporting multi-agent framework.
+- **LangChain** for its broader integrations and AI-tool ecosystem.
+- **n8n** for future workflow automation, after language/context quality and cost goals have been implemented and evaluated.
 
-These are extension points in the intended architecture—not a promise that those actions or a chat workflow are currently wired into the running API.
-
-### 5. Natural response in the user’s language
-
-Before responding, the system will shape the answer for the language or language mix of the original message. For Taglish, that means a natural Taglish response where appropriate—not a stiff, word-for-word translation. The goal is to preserve the answer’s meaning while making it sound clear and conversational. FastAPI will stream generated output directly to the client using `StreamingResponse` over HTTP; the planned design does not add a message queue or use SSE.
-
-## Model and cost approach
-
-The aim is to keep the system useful without requiring an expensive model for every step. Clear structured handoffs, bounded short-term context, and relevant memory retrieval can help avoid sending unnecessary context downstream and make it possible to choose Azure model deployments suited to each task. This is a design goal, not a guarantee of a particular cost or quality level; both will need to be measured as the workflow is implemented.
-
-The language layer should improve understanding, not force every downstream component into a rigid output style. The assistant should still be able to produce smooth, helpful answers.
+These options do not replace the present MAF-first learning path by default. Add technology only when the project has a concrete requirement for it.
 
 ## Current project status
 
-The repository is an early foundation for the design above. The currently wired FastAPI app exposes a health check and user authentication endpoints. Redis and MongoDB clients are initialized at startup. Azure AI Foundry orchestration, the Taglish understanding pipeline, bounded conversation-history behavior, long-term memory integration, chat endpoints, and streaming responses are not yet connected to the running API. Preparing for the Azure AI-103 exam is part of the learning path for designing the future multi-agent workflow.
-
-Older experimental code lives under `app_orig_copy/`; it should not be mistaken for routes currently served by the main application. A legacy Mem0 repository and its Groq/Cohere/Milvus configuration are still present in the codebase, but they are not initialized by the current API and are not the target agent architecture. The system is text-only at this stage, and voice support remains an open future problem.
+This repository is an early foundation, not a finished or production-ready assistant. It currently wires FastAPI, user authentication, MongoDB and Redis startup, and the simple MAF/Foundry chat prototype described above. The core product goals—robust Taglish and Gen Z slang understanding, context handling, measured low-cost conversations, and evaluations—remain work to do. Long-term memory, RAG, multi-agent collaboration, agent tool use, and automation are future extensions rather than current capabilities.
 
 ## Running the current API
 
-The project uses Python 3.13 and `uv`. The currently wired API expects `MONGO_URI` and `REDIS_URI` at startup. Put local settings in a root `.env` file; configuration is loaded from the process working directory. The legacy Mem0 repository still expects `GROQ_API_KEY`, `COHERE_API_KEY`, `MILVUS_URI`, `MILVUS_TOKEN`, and `MILVUS_COLLECTION_NAME` if that repository is used; these are not required to start the current API and are not the planned Azure configuration.
+The project uses Python 3.13 and `uv`. Run commands from the repository root. Configuration loads `.env` from the process working directory. The current app needs `MONGO_URI` and `REDIS_URI` for database/cache startup, and `AZURE_PROJECT_ENDPOINT` because the Foundry client is constructed during module import. The chat request additionally needs credentials available to `DefaultAzureCredential` and Azure Translator configuration (`AZURE_TRANSLATOR_ENDPOINT` and `AZURE_TRANSLATOR_KEY`). Keep credentials in your local environment; do not commit secrets.
 
 ```bash
 uv sync
 uv run python main.py
 ```
 
-The current Docker Compose setup starts the backend with MongoDB and Redis:
+The current Docker Compose file starts MongoDB and Redis and maps the backend to `127.0.0.1:8000`:
 
 ```bash
 docker compose up --build
 ```
 
-The API is available at `http://localhost:8000`; its health endpoint is `/health-check`. Authentication routes are mounted under `/api/auth`. Docker Compose does not configure the external services used by the legacy Mem0 repository.
+Compose currently passes MongoDB and Redis settings to the backend, but not `AZURE_PROJECT_ENDPOINT`. Since the app accesses that setting while importing the Foundry workflow, the backend needs that Azure setting supplied to its container or it can fail before the health, auth, or chat routes are available. The Compose configuration is not changed by these instructions.
+
+When running, the API is available at `http://localhost:8000`; its health endpoint is `/health-check`, authentication routes are under `/api/auth`, and the current chat prototype is `POST /api/chat`.
 
 ## License
 
