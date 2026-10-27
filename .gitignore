@@ -36,12 +36,12 @@ ENV/
 # dotenv files
 .env
 *.env
-!.env.example
 .env.local
 .env.cred
 .env.prod
 .env.production
 .env.*
+!.env.example
 
 # Test and coverage reports
 htmlcov/
