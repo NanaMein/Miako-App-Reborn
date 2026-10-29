@@ -17,56 +17,17 @@
       "source_location": "L9"
     },
     {
-      "id": "app_core_logger_loguruhandler",
-      "label": "LoguruHandler",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": "loguruhandler",
-      "source_file": "app/core/logger.py",
-      "source_location": "L10"
-    },
-    {
       "id": "app_repositories_database_usersrepository",
       "label": "UsersRepository",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": "usersrepository",
       "source_file": "app/repositories/database.py",
       "source_location": "L29"
-    },
-    {
-      "id": "app_schemas_users_schema_userloginschema",
-      "label": "UserLoginSchema",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "users_service.py",
-      "file_type": "code",
-      "norm_label": "userloginschema",
-      "source_file": "app/schemas/users_schema.py",
-      "source_location": "L4"
-    },
-    {
-      "id": "app_schemas_users_schema_userregisterschema",
-      "label": "UserRegisterSchema",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "users_service.py",
-      "file_type": "code",
-      "norm_label": "userregisterschema",
-      "source_file": "app/schemas/users_schema.py",
-      "source_location": "L9"
     },
     {
       "id": "app_services_password_hasher_service_passwordhasherservice",
@@ -75,7 +36,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": "passwordhasherservice",
       "source_file": "app/services/password_hasher_service.py",
@@ -88,7 +49,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": "userloginservice",
       "source_file": "app/services/users_service.py",
@@ -101,11 +62,24 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": "userregisterservice",
       "source_file": "app/services/users_service.py",
       "source_location": "L84"
+    },
+    {
+      "id": "app_core_logger_loguruhandler",
+      "label": "LoguruHandler",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.py",
+      "file_type": "code",
+      "norm_label": "loguruhandler",
+      "source_file": "app/core/logger.py",
+      "source_location": "L10"
     },
     {
       "id": "app_repositories_caches_rediscachebaserepository",
@@ -160,13 +134,39 @@
       "source_location": "L79"
     },
     {
+      "id": "app_schemas_users_schema_userloginschema",
+      "label": "UserLoginSchema",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "userloginschema",
+      "source_file": "app/schemas/users_schema.py",
+      "source_location": "L4"
+    },
+    {
+      "id": "app_schemas_users_schema_userregisterschema",
+      "label": "UserRegisterSchema",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "userregisterschema",
+      "source_file": "app/schemas/users_schema.py",
+      "source_location": "L9"
+    },
+    {
       "id": "app_services_users_service_useraccessservice",
       "label": "UserAccessService",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
+      "community": 5,
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "useraccessservice",
       "source_file": "app/services/users_service.py",
@@ -178,49 +178,38 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
+      "community": 5,
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "userlogoutservice",
       "source_file": "app/services/users_service.py",
       "source_location": "L134"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "label": "AgentMemoryRepository",
+      "id": "app_workflows_main_workflow_chat",
+      "label": "Chat",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "main_workflow.py",
+      "file_type": "code",
+      "norm_label": "chat",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L24"
+    },
+    {
+      "id": "app_core_config_settingsdeveloper",
+      "label": "SettingsDeveloper",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community_name": "SettingsDeveloper",
       "file_type": "code",
-      "norm_label": "agentmemoryrepository",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L50"
-    },
-    {
-      "id": "app_core_config_settings_cohere_api_key",
-      "label": ".cohere_api_key()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": ".cohere_api_key()",
+      "norm_label": "settingsdeveloper",
       "source_file": "app/core/config.py",
-      "source_location": "L54"
-    },
-    {
-      "id": "app_core_config_settings_groq_api_key",
-      "label": ".groq_api_key()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": ".groq_api_key()",
-      "source_file": "app/core/config.py",
-      "source_location": "L48"
+      "source_location": "L46"
     },
     {
       "id": "app_core_config_settings_init",
@@ -232,7 +221,7 @@
       "file_type": "code",
       "norm_label": ".__init__()",
       "source_file": "app/core/config.py",
-      "source_location": "L20"
+      "source_location": "L15"
     },
     {
       "id": "app_core_config_settings_is_deployed_for_production",
@@ -244,55 +233,7 @@
       "file_type": "code",
       "norm_label": ".is_deployed_for_production()",
       "source_file": "app/core/config.py",
-      "source_location": "L31"
-    },
-    {
-      "id": "app_core_config_settings_milvus_collection_name",
-      "label": ".milvus_collection_name()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": ".milvus_collection_name()",
-      "source_file": "app/core/config.py",
-      "source_location": "L72"
-    },
-    {
-      "id": "app_core_config_settings_milvus_config",
-      "label": ".milvus_config()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": ".milvus_config()",
-      "source_file": "app/core/config.py",
-      "source_location": "L78"
-    },
-    {
-      "id": "app_core_config_settings_milvus_token",
-      "label": ".milvus_token()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": ".milvus_token()",
-      "source_file": "app/core/config.py",
-      "source_location": "L66"
-    },
-    {
-      "id": "app_core_config_settings_milvus_uri",
-      "label": ".milvus_uri()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": ".milvus_uri()",
-      "source_file": "app/core/config.py",
-      "source_location": "L60"
+      "source_location": "L26"
     },
     {
       "id": "app_core_config_settings_mongo_uri",
@@ -304,7 +245,7 @@
       "file_type": "code",
       "norm_label": ".mongo_uri()",
       "source_file": "app/core/config.py",
-      "source_location": "L36"
+      "source_location": "L31"
     },
     {
       "id": "app_core_config_settings_ph_tz",
@@ -316,7 +257,7 @@
       "file_type": "code",
       "norm_label": ".ph_tz()",
       "source_file": "app/core/config.py",
-      "source_location": "L24"
+      "source_location": "L19"
     },
     {
       "id": "app_core_config_settings_redis_uri",
@@ -328,43 +269,43 @@
       "file_type": "code",
       "norm_label": ".redis_uri()",
       "source_file": "app/core/config.py",
-      "source_location": "L42"
+      "source_location": "L37"
     },
     {
-      "id": "app_core_logger_loguruhandler_development",
-      "label": ".development()",
+      "id": "app_dependencies_users_dependency_get_user_login_service",
+      "label": "get_user_login_service()",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
+      "community": 1,
+      "community_name": "UserLoginService",
       "file_type": "code",
-      "norm_label": ".development()",
-      "source_file": "app/core/logger.py",
-      "source_location": "L64"
+      "norm_label": "get_user_login_service()",
+      "source_file": "app/dependencies/users_dependency.py",
+      "source_location": "L19"
     },
     {
-      "id": "app_core_logger_loguruhandler_production",
-      "label": ".production()",
+      "id": "app_dependencies_users_dependency_get_user_register_service",
+      "label": "get_user_register_service()",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
+      "community": 1,
+      "community_name": "UserLoginService",
       "file_type": "code",
-      "norm_label": ".production()",
-      "source_file": "app/core/logger.py",
-      "source_location": "L36"
+      "norm_label": "get_user_register_service()",
+      "source_file": "app/dependencies/users_dependency.py",
+      "source_location": "L24"
     },
     {
-      "id": "app_core_logger_loguruhandler_setup_logger",
-      "label": ".setup_logger()",
+      "id": "app_repositories_database_usersrepository_get_users_collection",
+      "label": ".get_users_collection()",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
+      "community": 1,
+      "community_name": "UserLoginService",
       "file_type": "code",
-      "norm_label": ".setup_logger()",
-      "source_file": "app/core/logger.py",
-      "source_location": "L20"
+      "norm_label": ".get_users_collection()",
+      "source_file": "app/repositories/database.py",
+      "source_location": "L32"
     },
     {
       "id": "app_services_password_hasher_service_passwordhasherservice_hash_password",
@@ -372,7 +313,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".hash_password()",
       "source_file": "app/services/password_hasher_service.py",
@@ -384,7 +325,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".verify_hash_password()",
       "source_file": "app/services/password_hasher_service.py",
@@ -396,7 +337,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": "._get_user()",
       "source_file": "app/services/users_service.py",
@@ -408,7 +349,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".get_validated_username_from_db()",
       "source_file": "app/services/users_service.py",
@@ -420,7 +361,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".__init__()",
       "source_file": "app/services/users_service.py",
@@ -432,7 +373,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".insert_user_schema()",
       "source_file": "app/services/users_service.py",
@@ -444,7 +385,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".login_user_and_set_cookie()",
       "source_file": "app/services/users_service.py",
@@ -456,7 +397,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".__init__()",
       "source_file": "app/services/users_service.py",
@@ -468,7 +409,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".insert_user_schema()",
       "source_file": "app/services/users_service.py",
@@ -480,7 +421,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": ".register_user()",
       "source_file": "app/services/users_service.py",
@@ -497,6 +438,42 @@
       "norm_label": "graphifyplugin()",
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L12"
+    },
+    {
+      "id": "app_core_logger_loguruhandler_development",
+      "label": ".development()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.py",
+      "file_type": "code",
+      "norm_label": ".development()",
+      "source_file": "app/core/logger.py",
+      "source_location": "L64"
+    },
+    {
+      "id": "app_core_logger_loguruhandler_production",
+      "label": ".production()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.py",
+      "file_type": "code",
+      "norm_label": ".production()",
+      "source_file": "app/core/logger.py",
+      "source_location": "L36"
+    },
+    {
+      "id": "app_core_logger_loguruhandler_setup_logger",
+      "label": ".setup_logger()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.py",
+      "file_type": "code",
+      "norm_label": ".setup_logger()",
+      "source_file": "app/core/logger.py",
+      "source_location": "L20"
     },
     {
       "id": "app_repositories_caches_rediscachebaserepository_close_redis_cache_repository",
@@ -559,18 +536,6 @@
       "source_location": "L19"
     },
     {
-      "id": "app_repositories_database_usersrepository_get_users_collection",
-      "label": ".get_users_collection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "main.py",
-      "file_type": "code",
-      "norm_label": ".get_users_collection()",
-      "source_file": "app/repositories/database.py",
-      "source_location": "L32"
-    },
-    {
       "id": "main_health_check",
       "label": "health_check()",
       "_callable": true,
@@ -580,7 +545,7 @@
       "file_type": "code",
       "norm_label": "health_check()",
       "source_file": "main.py",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "main_lifespan",
@@ -592,7 +557,7 @@
       "file_type": "code",
       "norm_label": "lifespan()",
       "source_file": "main.py",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "app_repositories_caches_rediscachebaserepository_get_redis_client",
@@ -823,12 +788,36 @@
       "source_location": "L135"
     },
     {
+      "id": "app_dependencies_users_dependency_get_user_access_service",
+      "label": "get_user_access_service()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "get_user_access_service()",
+      "source_file": "app/dependencies/users_dependency.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "app_dependencies_users_dependency_get_user_logout_service",
+      "label": "get_user_logout_service()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "get_user_logout_service()",
+      "source_file": "app/dependencies/users_dependency.py",
+      "source_location": "L28"
+    },
+    {
       "id": "app_routers_auth_router_get_me",
       "label": "get_me()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "get_me()",
       "source_file": "app/routers/auth_router.py",
@@ -840,7 +829,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "get_sample_user()",
       "source_file": "app/routers/auth_router.py",
@@ -852,7 +841,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "login_user()",
       "source_file": "app/routers/auth_router.py",
@@ -864,7 +853,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "logout()",
       "source_file": "app/routers/auth_router.py",
@@ -876,7 +865,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "random_user()",
       "source_file": "app/routers/auth_router.py",
@@ -888,67 +877,19 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "register_user()",
       "source_file": "app/routers/auth_router.py",
       "source_location": "L35"
     },
     {
-      "id": "app_dependencies_users_dependency_get_user_access_service",
-      "label": "get_user_access_service()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
-      "file_type": "code",
-      "norm_label": "get_user_access_service()",
-      "source_file": "app/dependencies/users_dependency.py",
-      "source_location": "L32"
-    },
-    {
-      "id": "app_dependencies_users_dependency_get_user_login_service",
-      "label": "get_user_login_service()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
-      "file_type": "code",
-      "norm_label": "get_user_login_service()",
-      "source_file": "app/dependencies/users_dependency.py",
-      "source_location": "L19"
-    },
-    {
-      "id": "app_dependencies_users_dependency_get_user_logout_service",
-      "label": "get_user_logout_service()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
-      "file_type": "code",
-      "norm_label": "get_user_logout_service()",
-      "source_file": "app/dependencies/users_dependency.py",
-      "source_location": "L28"
-    },
-    {
-      "id": "app_dependencies_users_dependency_get_user_register_service",
-      "label": "get_user_register_service()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
-      "file_type": "code",
-      "norm_label": "get_user_register_service()",
-      "source_file": "app/dependencies/users_dependency.py",
-      "source_location": "L24"
-    },
-    {
       "id": "app_services_users_service_useraccessservice_get_user_id",
       "label": ".get_user_id()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
+      "community": 5,
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": ".get_user_id()",
       "source_file": "app/services/users_service.py",
@@ -959,129 +900,96 @@
       "label": ".logout_and_clear_cookies()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "users_dependency.py",
+      "community": 5,
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": ".logout_and_clear_cookies()",
       "source_file": "app/services/users_service.py",
       "source_location": "L142"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_add_memory",
-      "label": ".add_memory()",
+      "id": "app_workflows_main_workflow_chat_agent",
+      "label": "chat_agent()",
       "_callable": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community": 7,
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": ".add_memory()",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L70"
+      "norm_label": "chat_agent()",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L29"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_cleaned_searched_result",
-      "label": ".cleaned_searched_result()",
+      "id": "app_workflows_tools_translator_tool",
+      "label": "translator_tool()",
       "_callable": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community": 7,
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": ".cleaned_searched_result()",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L104"
+      "norm_label": "translator_tool()",
+      "source_file": "app/workflows/tools.py",
+      "source_location": "L9"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_close_memory_client",
-      "label": ".close_memory_client()",
+      "id": "app_core_config_settingsdeveloper_azure_project_endpoint",
+      "label": ".azure_project_endpoint()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community_name": "SettingsDeveloper",
       "file_type": "code",
-      "norm_label": ".close_memory_client()",
-      "source_file": "app/repositories/agent_memory_repository.py",
+      "norm_label": ".azure_project_endpoint()",
+      "source_file": "app/core/config.py",
       "source_location": "L59"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_full_search_memory",
-      "label": ".full_search_memory()",
+      "id": "app_core_config_settingsdeveloper_azure_translator_deployment_name",
+      "label": ".azure_translator_deployment_name()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community_name": "SettingsDeveloper",
       "file_type": "code",
-      "norm_label": ".full_search_memory()",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L86"
+      "norm_label": ".azure_translator_deployment_name()",
+      "source_file": "app/core/config.py",
+      "source_location": "L80"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_init_memory_client",
-      "label": ".init_memory_client()",
+      "id": "app_core_config_settingsdeveloper_azure_translator_headers",
+      "label": ".azure_translator_headers()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community_name": "SettingsDeveloper",
       "file_type": "code",
-      "norm_label": ".init_memory_client()",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L54"
+      "norm_label": ".azure_translator_headers()",
+      "source_file": "app/core/config.py",
+      "source_location": "L71"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_memory_client",
-      "label": ".memory_client()",
+      "id": "app_core_config_settingsdeveloper_azure_translator_url",
+      "label": ".azure_translator_url()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community_name": "SettingsDeveloper",
       "file_type": "code",
-      "norm_label": ".memory_client()",
-      "source_file": "app/repositories/agent_memory_repository.py",
+      "norm_label": ".azure_translator_url()",
+      "source_file": "app/core/config.py",
       "source_location": "L65"
     },
     {
-      "id": "app_repositories_agent_memory_repository_agentmemoryrepository_search_memory",
-      "label": ".search_memory()",
+      "id": "app_core_config_settingsdeveloper_init",
+      "label": ".__init__()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community_name": "SettingsDeveloper",
       "file_type": "code",
-      "norm_label": ".search_memory()",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L73"
-    },
-    {
-      "id": "app_core_config",
-      "label": "config.py",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": "config.py",
+      "norm_label": ".__init__()",
       "source_file": "app/core/config.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_core_logger",
-      "label": "logger.py",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": "logger.py",
-      "source_file": "app/core/logger.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_repositories_agent_memory_repository",
-      "label": "agent_memory_repository.py",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Settings",
-      "file_type": "code",
-      "norm_label": "agent_memory_repository.py",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L1"
+      "source_location": "L55"
     },
     {
       "id": "zoneinfo",
@@ -1095,46 +1003,35 @@
       "source_location": ""
     },
     {
-      "id": "app_schemas_users_schema",
-      "label": "users_schema.py",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "users_service.py",
-      "file_type": "code",
-      "norm_label": "users_schema.py",
-      "source_file": "app/schemas/users_schema.py",
-      "source_location": "L1"
-    },
-    {
       "id": "app_services_password_hasher_service",
       "label": "password_hasher_service.py",
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
       "norm_label": "password_hasher_service.py",
       "source_file": "app/services/password_hasher_service.py",
       "source_location": "L1"
     },
     {
-      "id": "app_services_users_service",
-      "label": "users_service.py",
+      "id": "asynccollection",
+      "label": "AsyncCollection",
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
-      "norm_label": "users_service.py",
-      "source_file": "app/services/users_service.py",
-      "source_location": "L1"
+      "norm_label": "asynccollection",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "basemodel",
-      "label": "BaseModel",
+      "id": "httpcookieauthservicedepends",
+      "label": "HttpCookieAuthServiceDepends",
       "_origin": "ast",
       "community": 1,
-      "community_name": "users_service.py",
+      "community_name": "UserLoginService",
       "file_type": "code",
-      "norm_label": "basemodel",
+      "norm_label": "httpcookieauthservicedepends",
       "source_file": "",
       "source_location": ""
     },
@@ -1209,7 +1106,7 @@
       "label": "AGENTS.md",
       "_origin": "ast",
       "community": 12,
-      "community_name": "AGENTS.md",
+      "community_name": "Project guidance",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "agents.md",
@@ -1217,16 +1114,64 @@
       "source_location": "L1"
     },
     {
-      "id": "agents_graphify",
-      "label": "graphify",
+      "id": "agents_architecture_and_dependency_direction",
+      "label": "Architecture and dependency direction",
       "_origin": "ast",
       "community": 12,
-      "community_name": "AGENTS.md",
+      "community_name": "Project guidance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "architecture and dependency direction",
+      "source_file": "AGENTS.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "agents_current_api_and_implementation_boundaries",
+      "label": "Current API and implementation boundaries",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "Project guidance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "current api and implementation boundaries",
+      "source_file": "AGENTS.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "agents_graphify",
+      "label": "Graphify",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "Project guidance",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "graphify",
       "source_file": "AGENTS.md",
-      "source_location": "L14"
+      "source_location": "L31"
+    },
+    {
+      "id": "agents_project_guidance",
+      "label": "Project guidance",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "Project guidance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "project guidance",
+      "source_file": "AGENTS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "agents_run_and_configure_the_current_app",
+      "label": "Run and configure the current app",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "Project guidance",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "run and configure the current app",
+      "source_file": "AGENTS.md",
+      "source_location": "L3"
     },
     {
       "id": "app_core_init",
@@ -1306,14 +1251,25 @@
       "source_location": "L1"
     },
     {
-      "id": "app_dependencies_auth_dependency",
-      "label": "auth_dependency.py",
+      "id": "app_core_config",
+      "label": "config.py",
       "_origin": "ast",
       "community": 2,
       "community_name": "main.py",
       "file_type": "code",
-      "norm_label": "auth_dependency.py",
-      "source_file": "app/dependencies/auth_dependency.py",
+      "norm_label": "config.py",
+      "source_file": "app/core/config.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_core_logger",
+      "label": "logger.py",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "main.py",
+      "file_type": "code",
+      "norm_label": "logger.py",
+      "source_file": "app/core/logger.py",
       "source_location": "L1"
     },
     {
@@ -1350,17 +1306,6 @@
       "source_location": "L1"
     },
     {
-      "id": "asynccollection",
-      "label": "AsyncCollection",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "main.py",
-      "file_type": "code",
-      "norm_label": "asynccollection",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "asyncmongoclient",
       "label": "AsyncMongoClient",
       "_origin": "ast",
@@ -1368,17 +1313,6 @@
       "community_name": "main.py",
       "file_type": "code",
       "norm_label": "asyncmongoclient",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "fastapi",
-      "label": "FastAPI",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "main.py",
-      "file_type": "code",
-      "norm_label": "fastapi",
       "source_file": "",
       "source_location": ""
     },
@@ -1433,6 +1367,17 @@
       "source_location": "L1",
       "type": "package",
       "version": "0.1.0"
+    },
+    {
+      "id": "app_workflows_init",
+      "label": "workflows/__init__.py",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "workflows/__init__.py",
+      "file_type": "code",
+      "norm_label": "workflows/__init__.py",
+      "source_file": "app/workflows/__init__.py",
+      "source_location": "L1"
     },
     {
       "id": "app_services_http_cookie_service_py_request",
@@ -1545,11 +1490,55 @@
       "source_location": ""
     },
     {
+      "id": "app_dependencies_auth_dependency",
+      "label": "auth_dependency.py",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "auth_dependency.py",
+      "source_file": "app/dependencies/auth_dependency.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_dependencies_users_dependency",
+      "label": "users_dependency.py",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "users_dependency.py",
+      "source_file": "app/dependencies/users_dependency.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_dependencies_users_dependency_py_request",
+      "label": "Request",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "request",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "app_dependencies_users_dependency_py_response",
+      "label": "Response",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "response",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "app_routers_auth_router",
       "label": "auth_router.py",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "auth_router.py",
       "source_file": "app/routers/auth_router.py",
@@ -1560,20 +1549,64 @@
       "label": "get",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "get",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "post",
+      "id": "app_routers_auth_router_py_post",
       "label": "post",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "post",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "app_schemas_users_schema",
+      "label": "users_schema.py",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "users_schema.py",
+      "source_file": "app/schemas/users_schema.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_schemas_users_schema_py_basemodel",
+      "label": "BaseModel",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "basemodel",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "app_services_users_service",
+      "label": "users_service.py",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "users_service.py",
+      "source_file": "app/services/users_service.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "fastapi",
+      "label": "FastAPI",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "users_service.py",
+      "file_type": "code",
+      "norm_label": "fastapi",
       "source_file": "",
       "source_location": ""
     },
@@ -1582,7 +1615,7 @@
       "label": "UserAccessServiceDepends",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "useraccessservicedepends",
       "source_file": "",
@@ -1593,7 +1626,7 @@
       "label": "UserLoginServiceDepends",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "userloginservicedepends",
       "source_file": "",
@@ -1604,7 +1637,7 @@
       "label": "UserLogoutServiceDepends",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "userlogoutservicedepends",
       "source_file": "",
@@ -1615,7 +1648,7 @@
       "label": "UserRegisterServiceDepends",
       "_origin": "ast",
       "community": 5,
-      "community_name": "auth_router.py",
+      "community_name": "users_service.py",
       "file_type": "code",
       "norm_label": "userregisterservicedepends",
       "source_file": "",
@@ -1634,66 +1667,6 @@
       "source_location": "L1"
     },
     {
-      "id": "readme_1_api_and_short_term_conversation_context_fastapi_and_redis",
-      "label": "1. API and short-term conversation context \u2014 FastAPI and Redis",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Mirai Aiko (Reborn)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "1. api and short-term conversation context \u2014 fastapi and redis",
-      "source_file": "README.md",
-      "source_location": "L44"
-    },
-    {
-      "id": "readme_2_language_understanding_and_orchestration_azure_ai_foundry",
-      "label": "2. Language understanding and orchestration \u2014 Azure AI Foundry",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Mirai Aiko (Reborn)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "2. language understanding and orchestration \u2014 azure ai foundry",
-      "source_file": "README.md",
-      "source_location": "L48"
-    },
-    {
-      "id": "readme_3_long_term_semantic_context",
-      "label": "3. Long-term semantic context",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Mirai Aiko (Reborn)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "3. long-term semantic context",
-      "source_file": "README.md",
-      "source_location": "L60"
-    },
-    {
-      "id": "readme_4_agent_reasoning_replies_and_extensible_actions",
-      "label": "4. Agent reasoning, replies, and extensible actions",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Mirai Aiko (Reborn)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. agent reasoning, replies, and extensible actions",
-      "source_file": "README.md",
-      "source_location": "L64"
-    },
-    {
-      "id": "readme_5_natural_response_in_the_user_s_language",
-      "label": "5. Natural response in the user\u2019s language",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "Mirai Aiko (Reborn)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "5. natural response in the user\u2019s language",
-      "source_file": "README.md",
-      "source_location": "L70"
-    },
-    {
       "id": "readme_current_project_status",
       "label": "Current project status",
       "_origin": "ast",
@@ -1703,19 +1676,31 @@
       "node_kind": "heading",
       "norm_label": "current project status",
       "source_file": "README.md",
-      "source_location": "L80"
+      "source_location": "L75"
     },
     {
-      "id": "readme_intended_architecture",
-      "label": "Intended architecture",
+      "id": "readme_future_supporting_options_not_current_dependencies_or_commitments",
+      "label": "Future supporting options\u2014not current dependencies or commitments",
       "_origin": "ast",
       "community": 6,
       "community_name": "Mirai Aiko (Reborn)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "intended architecture",
+      "norm_label": "future supporting options\u2014not current dependencies or commitments",
       "source_file": "README.md",
-      "source_location": "L15"
+      "source_location": "L63"
+    },
+    {
+      "id": "readme_intended_maf_and_foundry_workflow",
+      "label": "Intended MAF and Foundry workflow",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Mirai Aiko (Reborn)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "intended maf and foundry workflow",
+      "source_file": "README.md",
+      "source_location": "L53"
     },
     {
       "id": "readme_license",
@@ -1727,7 +1712,7 @@
       "node_kind": "heading",
       "norm_label": "license",
       "source_file": "README.md",
-      "source_location": "L103"
+      "source_location": "L98"
     },
     {
       "id": "readme_mirai_aiko_reborn",
@@ -1742,16 +1727,28 @@
       "source_location": "L1"
     },
     {
-      "id": "readme_model_and_cost_approach",
-      "label": "Model and cost approach",
+      "id": "readme_primary_foundation_microsoft_agent_framework_and_azure_ai_foundry",
+      "label": "Primary foundation: Microsoft Agent Framework and Azure AI Foundry",
       "_origin": "ast",
       "community": 6,
       "community_name": "Mirai Aiko (Reborn)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "model and cost approach",
+      "norm_label": "primary foundation: microsoft agent framework and azure ai foundry",
       "source_file": "README.md",
-      "source_location": "L74"
+      "source_location": "L19"
+    },
+    {
+      "id": "readme_product_goal_and_priorities",
+      "label": "Product goal and priorities",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Mirai Aiko (Reborn)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product goal and priorities",
+      "source_file": "README.md",
+      "source_location": "L7"
     },
     {
       "id": "readme_running_the_current_api",
@@ -1763,72 +1760,72 @@
       "node_kind": "heading",
       "norm_label": "running the current api",
       "source_file": "README.md",
-      "source_location": "L86"
+      "source_location": "L79"
     },
     {
-      "id": "readme_the_goal",
-      "label": "The goal",
+      "id": "readme_what_is_currently_implemented",
+      "label": "What is currently implemented",
       "_origin": "ast",
       "community": 6,
       "community_name": "Mirai Aiko (Reborn)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "the goal",
+      "norm_label": "what is currently implemented",
       "source_file": "README.md",
-      "source_location": "L7"
+      "source_location": "L25"
     },
     {
-      "id": "app_dependencies_users_dependency",
-      "label": "users_dependency.py",
+      "id": "app_workflows_main_workflow",
+      "label": "main_workflow.py",
       "_origin": "ast",
       "community": 7,
-      "community_name": "users_dependency.py",
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": "users_dependency.py",
-      "source_file": "app/dependencies/users_dependency.py",
+      "norm_label": "main_workflow.py",
+      "source_file": "app/workflows/main_workflow.py",
       "source_location": "L1"
     },
     {
-      "id": "app_dependencies_users_dependency_py_request",
-      "label": "Request",
+      "id": "app_workflows_main_workflow_py_basemodel",
+      "label": "BaseModel",
       "_origin": "ast",
       "community": 7,
-      "community_name": "users_dependency.py",
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": "request",
+      "norm_label": "basemodel",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "app_dependencies_users_dependency_py_response",
-      "label": "Response",
+      "id": "app_workflows_main_workflow_py_post",
+      "label": "post",
       "_origin": "ast",
       "community": 7,
-      "community_name": "users_dependency.py",
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": "response",
+      "norm_label": "post",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "httpcookieauthservicedepends",
-      "label": "HttpCookieAuthServiceDepends",
+      "id": "app_workflows_tools",
+      "label": "tools.py",
       "_origin": "ast",
       "community": 7,
-      "community_name": "users_dependency.py",
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": "httpcookieauthservicedepends",
-      "source_file": "",
-      "source_location": ""
+      "norm_label": "tools.py",
+      "source_file": "app/workflows/tools.py",
+      "source_location": "L1"
     },
     {
-      "id": "asyncmemory",
-      "label": "AsyncMemory",
+      "id": "languages",
+      "label": "LANGUAGES",
       "_origin": "ast",
-      "community": 8,
-      "community_name": "AgentMemoryRepository",
+      "community": 7,
+      "community_name": "main_workflow.py",
       "file_type": "code",
-      "norm_label": "asyncmemory",
+      "norm_label": "languages",
       "source_file": "",
       "source_location": ""
     },
@@ -1909,7 +1906,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/core/config.py",
-      "source_location": "L28",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -1994,18 +1991,6 @@
       "context": "call",
       "source_file": "app/dependencies/users_dependency.py",
       "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository_search_memory",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_cleaned_searched_result",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -2333,20 +2318,32 @@
       "weight": 1.0
     },
     {
-      "source": "main_lifespan",
-      "target": "app_repositories_caches_rediscachebaserepository_init_redis_cache_repository",
+      "source": "app_workflows_main_workflow_chat_agent",
+      "target": "app_workflows_tools_translator_tool",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
-      "source_file": "main.py",
-      "source_location": "L16",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_main_workflow_chat_agent",
+      "target": "app_workflows_main_workflow_chat",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
       "source": "main_lifespan",
-      "target": "app_repositories_database_mongobase_init_mongo_client",
+      "target": "app_repositories_caches_rediscachebaserepository_init_redis_cache_repository",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2358,6 +2355,18 @@
     },
     {
       "source": "main_lifespan",
+      "target": "app_repositories_database_mongobase_init_mongo_client",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "main.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "main_lifespan",
       "target": "app_repositories_caches_rediscachebaserepository_close_redis_cache_repository",
       "relation": "calls",
       "_origin": "ast",
@@ -2365,7 +2374,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "main.py",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -2377,7 +2386,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "main.py",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -2406,7 +2415,7 @@
     },
     {
       "source": "app_routers_auth_router_login_user",
-      "target": "post",
+      "target": "app_routers_auth_router_py_post",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2430,7 +2439,7 @@
     },
     {
       "source": "app_routers_auth_router_register_user",
-      "target": "post",
+      "target": "app_routers_auth_router_py_post",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2438,6 +2447,18 @@
       "context": "decorator",
       "source_file": "app/routers/auth_router.py",
       "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_main_workflow_chat_agent",
+      "target": "app_workflows_main_workflow_py_post",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "decorator",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -2449,7 +2470,7 @@
       "confidence_score": 1.0,
       "context": "decorator",
       "source_file": "main.py",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -2633,6 +2654,18 @@
       "weight": 1.0
     },
     {
+      "source": "app_workflows_main_workflow",
+      "target": "app_workflows_tools_translator_tool",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
       "source": "main",
       "target": "app_core_logger_loguruhandler",
       "relation": "imports",
@@ -2762,18 +2795,6 @@
       "context": "import",
       "source_file": "app/dependencies/users_dependency.py",
       "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository",
-      "target": "app_core_config",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -2957,6 +2978,54 @@
       "weight": 1.0
     },
     {
+      "source": "app_workflows_main_workflow",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_main_workflow",
+      "target": "app_core_config",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_main_workflow",
+      "target": "app_workflows_tools",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_tools",
+      "target": "app_core_config",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/workflows/tools.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "main",
       "target": "fastapi",
       "relation": "imports_from",
@@ -3014,6 +3083,18 @@
       "context": "import",
       "source_file": "main.py",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "main",
+      "target": "app_workflows_main_workflow",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "main.py",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -3269,6 +3350,18 @@
       "weight": 1.0
     },
     {
+      "source": "app_workflows_tools_translator_tool",
+      "target": "languages",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "source_file": "app/workflows/tools.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "main_lifespan",
       "target": "fastapi",
       "relation": "references",
@@ -3277,19 +3370,7 @@
       "confidence_score": 1.0,
       "context": "parameter_type",
       "source_file": "main.py",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository_memory_client",
-      "target": "asyncmemory",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "return_type",
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L65",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -3330,13 +3411,68 @@
     },
     {
       "source": "agents",
+      "target": "agents_project_guidance",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_project_guidance",
+      "target": "agents_current_api_and_implementation_boundaries",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_project_guidance",
+      "target": "agents_architecture_and_dependency_direction",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_project_guidance",
+      "target": "agents_run_and_configure_the_current_app",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_project_guidance",
       "target": "agents_graphify",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "AGENTS.md",
-      "source_location": "L14",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "app_core_config",
+      "target": "app_core_config_settingsdeveloper",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/core/config.py",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -3414,17 +3550,6 @@
       "confidence_score": 1.0,
       "source_file": "app/dependencies/users_dependency.py",
       "source_location": "L32",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -3626,6 +3751,39 @@
       "weight": 1.0
     },
     {
+      "source": "app_workflows_main_workflow",
+      "target": "app_workflows_main_workflow_chat",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_main_workflow",
+      "target": "app_workflows_main_workflow_chat_agent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_tools",
+      "target": "app_workflows_tools_translator_tool",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/workflows/tools.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "main",
       "target": "main_lifespan",
       "relation": "contains",
@@ -3633,7 +3791,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "main.py",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -3644,7 +3802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "main.py",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -3725,85 +3883,30 @@
       "weight": 1.0
     },
     {
-      "source": "readme_intended_architecture",
-      "target": "readme_1_api_and_short_term_conversation_context_fastapi_and_redis",
+      "source": "readme_mirai_aiko_reborn",
+      "target": "readme_primary_foundation_microsoft_agent_framework_and_azure_ai_foundry",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L44",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_intended_architecture",
-      "target": "readme_2_language_understanding_and_orchestration_azure_ai_foundry",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L48",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_intended_architecture",
-      "target": "readme_3_long_term_semantic_context",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L60",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_intended_architecture",
-      "target": "readme_4_agent_reasoning_replies_and_extensible_actions",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L64",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_intended_architecture",
-      "target": "readme_5_natural_response_in_the_user_s_language",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L70",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
       "source": "readme_mirai_aiko_reborn",
-      "target": "readme_license",
+      "target": "readme_future_supporting_options_not_current_dependencies_or_commitments",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L103",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
       "source": "readme_mirai_aiko_reborn",
-      "target": "readme_intended_architecture",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_mirai_aiko_reborn",
-      "target": "readme_the_goal",
+      "target": "readme_product_goal_and_priorities",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3814,24 +3917,13 @@
     },
     {
       "source": "readme_mirai_aiko_reborn",
-      "target": "readme_model_and_cost_approach",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L74",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_mirai_aiko_reborn",
       "target": "readme_current_project_status",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L80",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -3842,7 +3934,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L86",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_mirai_aiko_reborn",
+      "target": "readme_license",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_primary_foundation_microsoft_agent_framework_and_azure_ai_foundry",
+      "target": "readme_what_is_currently_implemented",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_primary_foundation_microsoft_agent_framework_and_azure_ai_foundry",
+      "target": "readme_intended_maf_and_foundry_workflow",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -3858,7 +3983,7 @@
     },
     {
       "source": "app_schemas_users_schema_userloginschema",
-      "target": "basemodel",
+      "target": "app_schemas_users_schema_py_basemodel",
       "relation": "inherits",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3869,13 +3994,24 @@
     },
     {
       "source": "app_schemas_users_schema_userregisterschema",
-      "target": "basemodel",
+      "target": "app_schemas_users_schema_py_basemodel",
       "relation": "inherits",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/schemas/users_schema.py",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "app_workflows_main_workflow_chat",
+      "target": "app_workflows_main_workflow_py_basemodel",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/workflows/main_workflow.py",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -3886,7 +4022,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L20",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3897,7 +4033,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L24",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3908,7 +4044,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L31",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -3919,7 +4055,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L36",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -3930,73 +4066,62 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L42",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
-      "source": "app_core_config_settings",
-      "target": "app_core_config_settings_groq_api_key",
+      "source": "app_core_config_settingsdeveloper",
+      "target": "app_core_config_settingsdeveloper_init",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L48",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
-      "source": "app_core_config_settings",
-      "target": "app_core_config_settings_cohere_api_key",
+      "source": "app_core_config_settingsdeveloper",
+      "target": "app_core_config_settingsdeveloper_azure_project_endpoint",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L54",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
-      "source": "app_core_config_settings",
-      "target": "app_core_config_settings_milvus_uri",
+      "source": "app_core_config_settingsdeveloper",
+      "target": "app_core_config_settingsdeveloper_azure_translator_url",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L60",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
-      "source": "app_core_config_settings",
-      "target": "app_core_config_settings_milvus_token",
+      "source": "app_core_config_settingsdeveloper",
+      "target": "app_core_config_settingsdeveloper_azure_translator_headers",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L66",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
-      "source": "app_core_config_settings",
-      "target": "app_core_config_settings_milvus_collection_name",
+      "source": "app_core_config_settingsdeveloper",
+      "target": "app_core_config_settingsdeveloper_azure_translator_deployment_name",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/core/config.py",
-      "source_location": "L72",
-      "weight": 1.0
-    },
-    {
-      "source": "app_core_config_settings",
-      "target": "app_core_config_settings_milvus_config",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/core/config.py",
-      "source_location": "L78",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -4030,83 +4155,6 @@
       "confidence_score": 1.0,
       "source_file": "app/core/logger.py",
       "source_location": "L64",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_cleaned_searched_result",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L104",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_init_memory_client",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L54",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_close_memory_client",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L59",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_memory_client",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L65",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_add_memory",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L70",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_search_memory",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L73",
-      "weight": 1.0
-    },
-    {
-      "source": "app_repositories_agent_memory_repository_agentmemoryrepository",
-      "target": "app_repositories_agent_memory_repository_agentmemoryrepository_full_search_memory",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/repositories/agent_memory_repository.py",
-      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -4680,7 +4728,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "main.py",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 0.8
     },
     {
@@ -4691,10 +4739,10 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "main.py",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 0.8
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8db06a96fd97e319ec3717f52c66b4dc90d1e820"
+  "built_at_commit": "a2016780979fbfaaedbbd4f1a65a076130d187a1"
 }

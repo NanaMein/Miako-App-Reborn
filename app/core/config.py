@@ -11,11 +11,6 @@ class Settings:
     REDIS_URI: str | None = os.getenv("REDIS_URI", None)
     PH_TZ: ZoneInfo = ZoneInfo("Asia/Manila")
     IS_DEPLOYED_FOR_PRODUCTION: bool = os.getenv("IS_DEPLOYED_FOR_PRODUCTION", "false").lower() == "true"
-    GROQ_API_KEY: str | None = os.getenv("GROQ_API_KEY", None)
-    COHERE_API_KEY: str | None = os.getenv("COHERE_API_KEY", None)
-    MILVUS_URI: str | None = os.getenv("MILVUS_URI", None)
-    MILVUS_TOKEN: str | None = os.getenv("MILVUS_TOKEN", None)
-    MILVUS_COLLECTION_NAME: str | None = os.getenv("MILVUS_COLLECTION_NAME", None)
 
     def __init__(self):
         logger.info("Loading application settings")
@@ -44,43 +39,6 @@ class Settings:
             raise RuntimeError("REDIS_URI not set")
         return self.REDIS_URI
 
-    @property
-    def groq_api_key(self) -> str:
-        if not self.GROQ_API_KEY:
-            raise RuntimeError("GROQ_API_KEY not set")
-        return self.GROQ_API_KEY
-
-    @property
-    def cohere_api_key(self) -> str:
-        if not self.COHERE_API_KEY:
-            raise RuntimeError("COHERE_API_KEY not set")
-        return self.COHERE_API_KEY
-
-    @property
-    def milvus_uri(self) -> str:
-        if not self.MILVUS_URI:
-            raise RuntimeError("MILVUS_URI not set")
-        return self.MILVUS_URI
-
-    @property
-    def milvus_token(self) -> str:
-        if not self.MILVUS_TOKEN:
-            raise RuntimeError("MILVUS_TOKEN not set")
-        return self.MILVUS_TOKEN
-
-    @property
-    def milvus_collection_name(self) -> str:
-        if not self.MILVUS_COLLECTION_NAME:
-            raise RuntimeError("MILVUS_COLLECTION_NAME not set")
-        return self.MILVUS_COLLECTION_NAME
-
-    @property
-    def milvus_config(self) -> dict[str, str]:
-        return {
-            "uri": self.milvus_uri,
-            "token": self.milvus_token,
-            "collection_name": self.milvus_collection_name,
-        }
 
 
 settings = Settings()
