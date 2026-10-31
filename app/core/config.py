@@ -80,6 +80,11 @@ class SettingsDeveloper:
     def azure_translator_deployment_name(self):
         return self.AZURE_TRANSLATOR_DEPLOYMENT_NAME
 
+    @property
+    def azure_search_endpoint(self):
+        return os.getenv("AZURE_SEARCH_ENDPOINT", None)
+
+
 
 
 
