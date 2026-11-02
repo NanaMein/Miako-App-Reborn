@@ -6,7 +6,7 @@ from azure.identity import DefaultAzureCredential
 from frontmatter import load as markdown_loader
 from pydantic import BaseModel, Field, ValidationError
 
-from app.core.config import settings_dev
+from ...core.config import settings_dev
 
 PROMPT_DIR = Path(__file__).parent.parent
 
