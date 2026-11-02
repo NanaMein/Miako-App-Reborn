@@ -29,9 +29,13 @@ def load_path_to_prompts(path: Path) -> AgentConfig | None:
     except ValidationError:
         return None
 
-def create_prompt_agent_foundry(filename: str) -> AgentVersionDetails | None:
+def get_local_agent_config(filename: str) -> AgentConfig | None:
     agent_prompt_path = file_name_to_path(name=filename)
-    agent_config = load_path_to_prompts(path=agent_prompt_path)
+    return load_path_to_prompts(path=agent_prompt_path)
+
+
+def create_prompt_agent_foundry(filename: str) -> AgentVersionDetails | None:
+    agent_config = get_local_agent_config(filename=filename)
     if not agent_config:
         return None
 
