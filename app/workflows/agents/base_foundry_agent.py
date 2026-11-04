@@ -53,36 +53,35 @@ class AgentConfigService:
 
         
 class AzureAIProjectService:
-    def __init__(self):
-        self._credential: DefaultAzureCredential | None = None
-        self._client: AIProjectClient | None = None
+    _credential: DefaultAzureCredential | None = None
+    _client: AIProjectClient | None = None
 
     @property
     def client(self):
-        if self._client:
-            return self._client
-        raise AzureAIException("Azure AI Project Client not yet initialized.")
+        if self._client is None:
+            raise AzureAIException("Azure AI Project Client not yet initialized.")
+        return self._client
 
     @property
     def credential(self):
-        if self._credential:
-            return self._credential
-        raise AzureAIException("Default Azure Credential is not yet initialized.")
+        if self._credential is None:
+            raise AzureAIException("Default Azure Credential is not yet initialized.")
+        return self._credential
 
-    async def start(self):
-        if not self._credential:
-            self._credential = DefaultAzureCredential()
-        if not self._client:
-            self._client = AIProjectClient(
-                credential=self._credential,
+    @classmethod
+    async def start(cls):
+        if cls._credential is None:
+            cls._credential = DefaultAzureCredential()
+        if cls._client is None:
+            cls._client = AIProjectClient(
+                credential=cls._credential,
                 endpoint=settings_dev.azure_project_endpoint
             )
 
-    async def stop(self):
-        if self._credential:
-            await self._credential.close()
-        if self._client:
-            await self._client.close()
+    @classmethod
+    async def stop(cls):
+        if cls._credential is not None:
+            await cls._credential.close()
+        if cls._client is not None:
+            await cls._client.close()
 
-
-ai_service = AzureAIProjectService()
