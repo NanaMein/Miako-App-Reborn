@@ -7,6 +7,7 @@ from frontmatter import load as markdown_loader
 from pydantic import BaseModel, Field, ValidationError
 
 from ...core.config import settings_dev
+from .base_foundry_agent import AzureAIProjectService
 
 PROMPT_DIR = Path(__file__).parent.parent
 
@@ -50,3 +51,17 @@ def create_prompt_agent_foundry(filename: str) -> AgentVersionDetails | None:
                 instructions=agent_config.instructions
             )
         )
+
+class CreateAgent:
+    def __init__(self, name: str):
+        self._name = name
+        self._azure_ai_service: AzureAIProjectService | None = None
+
+    @property
+    def azure_ai_service(self) -> AzureAIProjectService:
+        if self._azure_ai_service is None:
+            self._azure_ai_service = AzureAIProjectService()
+        return self.azure_ai_service
+        
+    async def run(self):
+        return await self.azure_ai_service.create_prompt_agent(name=self._name)
