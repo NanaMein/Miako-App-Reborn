@@ -123,4 +123,34 @@ class AzureAIProjectService:
 
         except Exception as ex:
             raise AzureAIException(f"Unexpected Error Occurred: {ex!s}")
+
+    async def delete_prompt_agent(self, name: str, agent_version: str = "1"):
+        """Delete a foundry prompt agent.
         
+            Args:
+                name: The name of markdown file used to look up the agent configuration.
+
+                agent_version: The version of agent. Defaulted to 1
+        
+            Returns:
+                The deleted agent version
+                
+            Raises:
+                AzureAIException: Simple description and status code of the Error.
+            """
+        try:
+            agent_config: AgentConfigResult = self.agent_config.get_agent_config_result(name)
+ 
+            deleted_agent_version = await self.client.agents.delete_version(
+                agent_name=agent_config.agent_name, agent_version=agent_version
+            )
+            return deleted_agent_version
+
+        except AzureAIException:
+            raise
+            
+        except HttpResponseError:
+            raise AzureAIException("Agent version deletion failed.", status_code=400)
+
+        except Exception as ex:
+            raise AzureAIException(f"Unexpected Error Occurred: {ex!s}")
