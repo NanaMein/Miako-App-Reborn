@@ -1,24 +1,20 @@
-from azure.ai.projects import AIProjectClient
-from azure.ai.projects.models import DeleteAgentResponse
-from azure.identity import DefaultAzureCredential
-
-from ...core.config import settings_dev
-from .create_agent import AgentConfig, get_local_agent_config
+from .base_foundry_agent import AzureAIProjectService
 
 
-def delete_prompt_agent_foundry(filename: str) -> bool:
-    agent_config: AgentConfig | None = get_local_agent_config(filename=filename)
-    if not agent_config:
-        return False
-    try:
-        with AIProjectClient(
-            endpoint=settings_dev.azure_project_endpoint,
-            credential=DefaultAzureCredential()
-        ) as client:
-            deleted_agent: DeleteAgentResponse = client.agents.delete(agent_name=agent_config.agent_name)
-            print(deleted_agent.as_dict())
-            return True
-    except Exception as ex:
-        print(f"Error delete: {ex!s}")
-        return False
+class DeleteAgent:
+    def __init__(self, name: str, version: str | None = None):
+        self._name = name
+        self._version = version
+        self._azure_ai_service: AzureAIProjectService | None = None
 
+    @property
+    def azure_ai_service(self) -> AzureAIProjectService:
+        if self._azure_ai_service is None:
+            self._azure_ai_service = AzureAIProjectService()
+        return self._azure_ai_service
+        
+    async def run(self):
+        return await self.azure_ai_service.delete_prompt_agent(
+            name=self._name,
+            agent_version=self._version or "1"
+        )
